@@ -67,7 +67,7 @@ Page({
 > 将此方法mixin到页面或挂载到全局后，页面获取globalData时不需要再声明getApp()
 ```javascript
 //app.js
-import $global from './lib/globalData'
+import $global from './lib/globalData.js'
 wx.mixin({$global})
 ```
 1. 获取globalData
