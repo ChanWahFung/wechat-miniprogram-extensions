@@ -1,4 +1,4 @@
-# 微信小程序扩展：EventBus、Mixin
+# 微信小程序扩展：EventBus、Mixin、GlobalData
 > 只做简易的实现，用于日常简单的业务
 
 ## EventBus
@@ -62,4 +62,26 @@ Page({
     this.myMethod() // hi
   }
 })
+```
+## GlobalData
+> 将此方法mixin到页面或挂载到全局后，页面获取globalData时不需要再声明getApp()
+```javascript
+//app.js
+import $global from './lib/globalData'
+wx.mixin({$global})
+```
+1. 获取globalData
+```javascript
+this.$global()
+```
+2. 获取项
+```javascript
+this.$global('name')
+```
+3. 设置
+```javascript
+//单个
+this.$global('name','Joe')
+//多个
+this.$global({name:'Joe'})
 ```
