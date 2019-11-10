@@ -12,10 +12,10 @@ wx.$bus = eventBus
 ```javascript
 //监听(可监听多个)
 wx.$bus.on('event1',(msg)=>{
-  console.log('event1: ' + msg)
+  console.log('event1:'+msg)
 })
 //触发
-wx.$bus.emit('hello')
+wx.$bus.emit('event1','hello')
 //移除
 wx.$bus.off('event1')
 ```
