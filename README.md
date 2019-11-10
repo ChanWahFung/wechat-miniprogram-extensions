@@ -1,15 +1,14 @@
-# wx-miniprogram-extensions
->微信小程序扩展：EventBus、Mixin
->只做简易的实现，用于日常简单的业务
+# 微信小程序扩展：EventBus、Mixin
+> 只做简易的实现，用于日常简单的业务
 
 ## EventBus
-### 1.app.js引入
+1. app.js引入
 ```javascript
 import eventBus from './lib/eventBus.js'
 //挂载到全局上
 wx.$bus = eventBus
 ```
-### 2.使用
+2. 使用
 ```javascript
 //监听(可监听多个)
 wx.$bus.on('event1',(msg)=>{
@@ -23,13 +22,13 @@ wx.$bus.off('event1')
 
 ## Mixin
 > 页面的定义 优先级大于 mixins, 生命周期优先执行mixin再执行Page
-### 1.app.js引入
+1. app.js引入
 ```javascript
 import mixin from './lib/mixin.js'
 ```
-### 2.全局mixin
-> 在app.js使用
+2. 全局mixin
 ```javascript
+//在app.js使用
 wx.mixin({
   data:{},
   onLoad(){},
@@ -37,7 +36,7 @@ wx.mixin({
 })
 ```
 
-### 3.Page的mixins选项
+3. Page的mixins选项
 ```javascript
 //my-mixin.js
 export default const mixin = {
