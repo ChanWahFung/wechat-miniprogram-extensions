@@ -18,7 +18,9 @@ let watch = (function(){
   //监听属性 Object.defineProperty
   function observe(obj,key,watchFn,ctx){
     let oldVal = obj[key]
-    if(isType(oldVal,'null') || isType(oldVal,'object')) return
+    if(isType(oldVal,'null') || isType(oldVal,'object')){
+      return
+    }
     Object.defineProperty(obj,key,{
       configurable: true,
       enumerable: true,
