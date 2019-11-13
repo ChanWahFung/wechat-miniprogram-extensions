@@ -87,7 +87,7 @@ this.$global('name','Joe')
 this.$global({name:'Joe'})
 ```
 ## Watch
-> 监听数据变化,用法和Vue相似，但不支持对象
+> 监听数据变化，用法和Vue相似，暂不支持对象
 1. app.js引入
 ```javascript
 import watch from './lib/watch.js'
