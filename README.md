@@ -1,6 +1,11 @@
 # 微信小程序扩展：EventBus、Mixin、GlobalData
 > 只做简易的实现，用于日常简单的业务
 
+* [EventBus](#EventBus)
+* [Mixin](#Mixin)
+* [GlobalData](#GlobalData)
+* [Watch](#Watch)
+
 ## EventBus
 1. app.js引入
 ```javascript
@@ -65,23 +70,52 @@ Page({
 ```
 ## GlobalData
 > 将此方法mixin到页面或挂载到全局后，页面获取globalData时不需要再声明getApp()
+1. app.js引入
 ```javascript
-//app.js
 import $global from './lib/globalData.js'
 wx.mixin({$global})
 ```
-1. 获取globalData
+2. 使用
 ```javascript
+//获取globalData
 this.$global()
-```
-2. 获取项
-```javascript
+//获取项
 this.$global('name')
-```
-3. 设置
-```javascript
-//单个
+//设置单个
 this.$global('name','Joe')
-//多个
+//设置多个
 this.$global({name:'Joe'})
+```
+## Watch
+> 监听数据变化
+1. app.js引入
+```javascript
+import watch from './lib/watch.js'
+wx.mixin({
+  onLoad(){
+    watch.setWatch(this)
+  }
+})
+```
+2. 使用
+```javascript
+Page({
+  data:{
+    msg:'hello',
+    msg2:'hi',
+    people:{
+      name:'Joe'
+    }
+  },
+  watch:{
+    msg:function(newVal,oldVal){},
+    //字符串方法名
+    msg2:'someMethod',
+    //数组内接受多个方法
+    'people.name':[
+      'someMethod2',
+      function(newVal,oldVal){}
+    ]
+  }
+})
 ```
