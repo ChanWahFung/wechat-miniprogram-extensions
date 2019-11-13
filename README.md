@@ -1,4 +1,4 @@
-# 微信小程序扩展：EventBus、Mixin、GlobalData
+# 微信小程序扩展
 > 只做简易的实现，用于日常简单的业务
 
 * [EventBus](#EventBus)
