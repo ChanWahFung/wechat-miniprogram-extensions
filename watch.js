@@ -29,6 +29,7 @@ let watch = (function () {
       return
     }
     if (deepFlag && isType(cacheVal, 'object')) {
+      //watch目标为对象时，遍历递归为属性添加监听器
       Object.keys(cacheVal).forEach(cacheValkey => {
         observe(cacheVal, cacheValkey, watchFn, deepFlag, ctx)
       })
