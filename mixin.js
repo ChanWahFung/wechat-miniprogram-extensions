@@ -32,7 +32,7 @@ function merge(mixins, config) {
           config[key] = Object.assign({}, mixin[key], config[key])
         } else if (lifecycle.includes(key)) {
           let nativeLifecycle = config[key]
-          config[key] = async function () {
+          config[key] = function () {
             let arg = Array.prototype.slice.call(arguments)
             mixin[key].call(this, arg)
             return nativeLifecycle && nativeLifecycle.call(this, arg)
