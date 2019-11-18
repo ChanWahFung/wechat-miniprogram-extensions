@@ -34,8 +34,8 @@ function merge(mixins, config) {
           let nativeLifecycle = config[key]
           config[key] = function () {
             let arg = Array.prototype.slice.call(arguments)
-            mixin[key].call(this, arg)
-            return nativeLifecycle && nativeLifecycle.call(this, arg)
+            mixin[key].apply(this, arg)
+            return nativeLifecycle && nativeLifecycle.apply(this, arg)
           }
         } else {
           config[key] = mixin[key]
